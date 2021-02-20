@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -8,27 +8,42 @@ import {
   TouchableNativeFeedback,
   TouchableNativeFeedbackComponent,
   FlatList,
+  Button,
+  TouchableOpacity,
 } from 'react-native';
-import faker from 'faker';
+import {categories, collections} from './src/sample';
+import {CategoryCard, FoodCard} from './src/component';
 
 const App = () => {
-  const [data, setData] = useState([
-    {id: 1, nama: 'Bambang'},
-    {id: 2, nama: 'Joko'},
-    {id: 3, nama: 'Andi'},
-  ]);
+  useEffect(() => console.log(collections.collections), []);
   return (
     <View style={styles.mainContainer}>
-      <FlatList
-        refreshing
-        // data={data}
-        data={Array.from(Array(50), () => faker.commerce.product())}
-        renderItem={({item}) => (
-          <View style={styles.productWrapper}>
-            <Text style={styles.productText}>{item}</Text>
-          </View>
-        )}
-      />
+      <View>
+        {/* <FlatList
+          refreshing
+          data={categories.categories}
+          renderItem={({item}) => (
+            <TouchableOpacity>
+              <CategoryCard categoryName={item.categories.name} />
+            </TouchableOpacity>
+          )}
+        /> */}
+        <FlatList
+          onRefresh={() => console.log('ea')}
+          refreshing={false}
+          data={collections.collections}
+          renderItem={({item}) => (
+            <TouchableOpacity>
+              {/* <Text>{item.collection.title}</Text> */}
+              <FoodCard
+                image={item.collection.image_url}
+                title={item.collection.title}
+              />
+            </TouchableOpacity>
+          )}
+        />
+      </View>
+      <View></View>
     </View>
   );
 };
@@ -37,16 +52,6 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: 'rgb(250, 202, 0)',
-  },
-  productText: {
-    fontSize: 25,
-  },
-  productWrapper: {
-    margin: 10,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 50,
-    backgroundColor: 'white',
   },
 });
 
