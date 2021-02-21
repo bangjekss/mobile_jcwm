@@ -1,18 +1,19 @@
 import React from 'react';
-import {Image, View, StyleSheet} from 'react-native';
+import {Image, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {deviceWidth} from '../helper';
 
 const FoodCard = ({image, title}) => {
   return (
-    <View>
+    <TouchableOpacity>
       <Image source={{uri: image}} style={styles.img} />
-    </View>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   img: {
-    height: 150,
-    width: 150,
+    height: deviceWidth / 2,
+    width: deviceWidth / 2,
   },
 });
 
