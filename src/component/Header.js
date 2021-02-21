@@ -2,7 +2,6 @@ import React from 'react';
 import {Text, View, StyleSheet, Platform} from 'react-native';
 import {deviceHeight} from '../helper';
 
-console.log(Platform);
 const Header = () => {
   return (
     <View style={styles.mainContainer}>

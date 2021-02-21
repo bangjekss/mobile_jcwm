@@ -1,17 +1,18 @@
 import {
-  API_LOADING_FAILED,
   API_LOADING_START,
   API_LOADING_SUCCESS,
+  API_LOADING_FAILED,
+  ADD_TO_CART,
 } from '../type';
 
 const INITIAL_STATE = {
-  data: [],
+  cart: [],
   isLoading: false,
   error: false,
   errorMessage: null,
 };
 
-export const mealReducer = (state = INITIAL_STATE, action) => {
+export const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case API_LOADING_START:
       return {
@@ -26,14 +27,13 @@ export const mealReducer = (state = INITIAL_STATE, action) => {
     case API_LOADING_FAILED:
       return {
         ...state,
-        isLoading: true,
         error: true,
         errorMessage: action.payload,
       };
-    case 'GET_MEAL':
+    case ADD_TO_CART:
       return {
         ...state,
-        data: action.payload,
+        cart: [...state.cart, action.payload],
       };
     default:
       return state;
