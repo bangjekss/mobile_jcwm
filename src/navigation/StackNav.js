@@ -80,7 +80,7 @@ const Cart = (props) => {
 
 const Stack = createStackNavigator();
 
-const Main = () => {
+const StackNav = () => {
   return (
     <Stack.Navigator initialRouteName="ProductList">
       <Stack.Screen name="ProductList" component={ProductList} />
@@ -96,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Main;
+export default StackNav;

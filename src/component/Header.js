@@ -1,11 +1,17 @@
 import React from 'react';
 import {Text, View, StyleSheet, Platform} from 'react-native';
+import {Icon} from 'react-native-elements';
 import {deviceHeight} from '../helper';
 
 const Header = () => {
   return (
     <View style={styles.mainContainer}>
-      <Text style={styles.textHeader}>TO DO LIST</Text>
+      <View>
+        <Icon name="account-circle" type="material" size={35} />
+      </View>
+      <View>
+        <Text style={styles.textHeader}>Yuchase</Text>
+      </View>
     </View>
   );
 };
@@ -13,14 +19,16 @@ const Header = () => {
 const styles = StyleSheet.create({
   mainContainer: {
     marginTop: Platform.OS == 'ios' ? 10 : 0,
+    paddingHorizontal: 20,
     height: deviceHeight / 16,
     backgroundColor: 'orange',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    flexDirection: 'row',
   },
   textHeader: {
     color: 'black',
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: 'bold',
   },
 });
