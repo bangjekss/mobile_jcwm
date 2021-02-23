@@ -3,3 +3,6 @@ export const API_LOADING_SUCCESS = 'API_LOADING_SUCCESS';
 export const API_LOADING_FAILED = 'API_LOADING_FAILED';
 
 export const ADD_TO_CART = 'ADD_TO_CART';
+
+export const AUTH_SIGN_IN_UP = 'AUTH_SIGN_IN_UP';
+export const AUTH_LOGOUT = 'AUTH_LOGOUT';

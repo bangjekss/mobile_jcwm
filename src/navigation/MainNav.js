@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Text, TextInput, View} from 'react-native';
-import {StackNav} from '.';
+import {DrawerNav, StackNav, TabNav} from '.';
 import {Center} from '../helper';
 
 const MainNav = () => {
@@ -8,13 +8,13 @@ const MainNav = () => {
   const [username, setUsername] = useState(null);
   return (
     <>
-      {username ? (
+      {!username ? (
         <>
-          <Center>
+          {/* <View>
             <Text>Logged in, hi {username}</Text>
             <Button title="logout" onPress={() => setUsername(null)} />
-          </Center>
-          <StackNav />
+          </View> */}
+          <DrawerNav />
         </>
       ) : (
         <Center>

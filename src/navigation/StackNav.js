@@ -12,22 +12,26 @@ import {createStackNavigator} from '@react-navigation/stack';
 import faker from 'faker';
 import {useDispatch, useSelector} from 'react-redux';
 import {addToCartAction} from '../redux/action';
+import {FoodCard, FoodList} from '../component';
 
 const ProductList = (props) => {
   const {navigation} = props;
-  const renderItem = ({item}) => {
-    return (
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('ProductDetail', {
-            productName: item,
-            price: Math.floor(Math.random() * 100),
-          })
-        }>
-        <Text style={styles.text}>{item}</Text>
-      </TouchableOpacity>
-    );
-  };
+  // const renderItem = ({item}) => {
+  //   return (
+  //     <TouchableOpacity
+  //       onPress={() =>
+  //         navigation.navigate('ProductDetail', {
+  //           productName: item,
+  //           price: Math.floor(Math.random() * 100),
+  //         })
+  //       }>
+  //       <Text style={styles.text}>{item}</Text>
+  //     </TouchableOpacity>
+  //   );
+  // };
+  const renderItem = ({item}) => (
+    <FoodList item={item} navigation={navigation} />
+  );
   const renderCardBtn = () => {
     return <Button title="cart" onPress={() => navigation.navigate('Cart')} />;
   };

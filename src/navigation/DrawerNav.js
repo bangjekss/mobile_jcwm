@@ -3,6 +3,7 @@ import {Button, Text, View} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {Header} from '../component';
 import {Center} from '../helper';
+import {TabNav} from '.';
 
 const Drawer = createDrawerNavigator();
 
@@ -21,22 +22,19 @@ const Home = (props) => {
   );
 };
 
-const Settings = (propsr) => {
+const Logout = (props) => {
   return (
-    <View>
-      <Text>setting</Text>
-    </View>
+    <Center>
+      <Text>logout</Text>
+    </Center>
   );
 };
 
 const DrawerNav = () => {
   return (
-    <Drawer.Navigator initialRouteName="home" drawerPosition="right">
-      <Drawer.Screen
-        name="home"
-        component={Home}
-        options={{title: 'ea'}}></Drawer.Screen>
-      <Drawer.Screen name="settings" component={Settings}></Drawer.Screen>
+    <Drawer.Navigator initialRouteName="home" drawerPosition="left">
+      <Drawer.Screen name="Profile" component={TabNav} />
+      <Drawer.Screen name="Logout" component={Logout} />
     </Drawer.Navigator>
   );
 };

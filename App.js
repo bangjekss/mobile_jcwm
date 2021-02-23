@@ -5,7 +5,13 @@ import reducer from './src/redux/reducer';
 import {Todo} from './src/screen';
 import {Header} from './src/component';
 import {NavigationContainer} from '@react-navigation/native';
-import {StackNav, TabNav, DrawerNav, MainNav} from './src/navigation';
+import {
+  StackNav,
+  TabNav,
+  DrawerNav,
+  MainNav,
+  AuthStack,
+} from './src/navigation';
 
 const store = configureStore({
   reducer,
@@ -20,7 +26,8 @@ const App = () => {
         {/* <StackNav /> */}
         {/* <TabNav /> */}
         {/* <DrawerNav /> */}
-        <MainNav />
+        {/* <MainNav /> */}
+        <AuthStack />
       </Provider>
     </NavigationContainer>
   );
