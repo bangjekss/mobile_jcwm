@@ -2,7 +2,7 @@ import React from 'react';
 import {configureStore} from '@reduxjs/toolkit';
 import {Provider} from 'react-redux';
 import reducer from './src/redux/reducer';
-import {Todo} from './src/screen';
+import {CartScreen, HomeScreen, ProductScreen, Todo} from './src/screen';
 import {Header} from './src/component';
 import {NavigationContainer} from '@react-navigation/native';
 import {
@@ -11,6 +11,7 @@ import {
   DrawerNav,
   MainNav,
   AuthStack,
+  ProductStack,
 } from './src/navigation';
 
 const store = configureStore({
@@ -27,7 +28,11 @@ const App = () => {
         {/* <TabNav /> */}
         {/* <DrawerNav /> */}
         {/* <MainNav /> */}
-        <AuthStack />
+        {/* <AuthStack /> */}
+        {/* <HomeScreen /> */}
+        {/* <ProductScreen /> */}
+        <ProductStack />
+        {/* <CartScreen /> */}
       </Provider>
     </NavigationContainer>
   );
