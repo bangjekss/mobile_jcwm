@@ -28,10 +28,10 @@ const App = () => {
         {/* <TabNav /> */}
         {/* <DrawerNav /> */}
         {/* <MainNav /> */}
-        {/* <AuthStack /> */}
+        <AuthStack />
         {/* <HomeScreen /> */}
         {/* <ProductScreen /> */}
-        <ProductStack />
+        {/* <ProductStack /> */}
         {/* <CartScreen /> */}
       </Provider>
     </NavigationContainer>

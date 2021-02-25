@@ -8,43 +8,45 @@ const HomeScreen = ({navigation}) => {
   const [product, setProduct] = useState([]);
   const [search, setSearch] = useState('');
 
-  useEffect(
-    () => setProduct(Array.from(Array(20), () => faker.commerce.product())),
-    [],
-  );
+  useEffect(() => {
+    // setProduct([]);
+    setProduct(Array.from(Array(10), () => faker.commerce.product()));
+    console.log(product);
+  }, []);
 
   const handleSearch = (e) => {
     setSearch(e);
-    const newFilter = product.filter((value) => value.includes(search));
-    console.log(search);
-    console.log(newFilter);
-    setProduct(newFilter);
+    // const newFilter = product.filter((value) => value.includes(search));
+    // console.log(search);
+    // console.log(newFilter);
+    // setProduct(newFilter);
   };
 
   const leftComponent = {
     icon: 'menu',
     color: 'black',
-    onPress: () => navigation.toggleDrawer(),
+    onPress: () => {
+      console.log('eaeaea');
+      navigation.toggleDrawer();
+    },
   };
 
   const renderItem = ({item, index}) => {
     return item.toLowerCase().includes(search.toLowerCase()) ? (
-      <ListItem
-        bottomDivider
-        key={index}
-        onPress={() =>
-          navigation.navigate('Product Screen', {
-            name: item,
-            price: Math.floor(Math.random() * 100),
-          })
-        }>
+      <ListItem bottomDivider onPress={true}>
         <ListItem.Content>
-          <ListItem.Title>{item}</ListItem.Title>
+          <ListItem.Title
+            onPress={() =>
+              navigation.navigate('Product Screen', {
+                name: item,
+                price: Math.floor(Math.random() * 100),
+              })
+            }>
+            {item}
+          </ListItem.Title>
         </ListItem.Content>
       </ListItem>
-    ) : (
-      <Text>eas</Text>
-    );
+    ) : null;
   };
 
   return (
@@ -64,7 +66,11 @@ const HomeScreen = ({navigation}) => {
         }}
         inputContainerStyle={{backgroundColor: 'white'}}
       />
-      <FlatList data={product} renderItem={renderItem} />
+      <FlatList
+        data={product}
+        renderItem={renderItem}
+        onPress={() => console.log('eaaa')}
+      />
     </View>
   );
 };
